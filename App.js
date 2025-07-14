@@ -126,7 +126,7 @@ function App()
             
             <div className=" flex justify-between p-3 items-center h-[15vh] bg-gray-700">
             <Header ></Header>
-            <button className="border border-white text-white rounded-2xl p-2 mr-3 cursor-pointer" onClick={handleMode} >Dark Mode</button>
+            <button className="border border-white text-white rounded-2xl p-2 mr-3 cursor-pointer" onClick={handleMode} >{dark===true? " ☀️Light Mode":" 🌙Dark Mode"}</button>
         </div> 
             
             
