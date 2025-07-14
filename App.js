@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import { useState, useEffect } from "react";
 import Header from "./src/Components/Header.jsx";
 import SubjectCard from "./src/Components/SubjectCard.jsx";
+import Modal from "./src/Components/Modal.jsx";
 
 function App()
     {
         const[Study,setStudy]=useState([]);
         const [dark,setdark]=useState(false);
+        const [showModal, setShowModal] = useState(false);
+        
         useEffect(()=>
         {
             const data=JSON.parse(localStorage.getItem("study"));
@@ -32,22 +35,23 @@ function App()
             
         },[dark])
 
-        function handleAdd(){
-            setStudy([...Study,{
-               id:crypto.randomUUID(),
-               Subject:"",
-               Hours:"",
-               Completed:0,
-               
-
-            }])
-        }
+       function handleAdd(subject, hours) {
+    setStudy([
+      ...Study,
+      {
+        id: crypto.randomUUID(),
+        Subject: subject,
+        Hours: hours,
+        Completed: 0
+      }
+    ]);
+  }
         function updateSubject(id,newSub){
            
             setStudy((prev)=>
                     prev.map((val)=>
-                        val.id===id?{...val, Subject:newSub} :val
-                    )
+                        val.id===id?{...val, Subject:newSub}:val
+        )
             );
 
         }
@@ -94,9 +98,7 @@ function App()
                return (val.id!=id)
             }
                 
-            
-
-            )
+             )
         )
       }
       function handleMode()
@@ -105,6 +107,9 @@ function App()
             !prev
         )
       }
+      
+     
+
       
 
 
@@ -116,13 +121,13 @@ function App()
 
 
 
-           //className={`h-[100vh] ${DarkMode==true? bg-black :bg-white}`}
+          
 
 
 
         return(
         
-            <div className={`h-full ${dark===true? "bg-black":"bg-white"}`}>
+            <div className={`min-h-screen  ${dark===true? "bg-black":"bg-white"}`}>
             
             <div className=" flex justify-between p-3 items-center h-[15vh] bg-gray-700">
             <Header ></Header>
@@ -132,12 +137,22 @@ function App()
             
             <div className="text-center ">
 
-             <button className=" mt-3 bg-amber-50 p-3 text-xl font-serif font-bold border-2 rounded-3xl shadow-xl cursor-pointer" onClick={handleAdd}>Add Subject</button></div>
+             <button className=" mt-3 bg-amber-50 p-3 text-xl font-serif font-bold border-2 rounded-3xl shadow-xl cursor-pointer" onClick={() => setShowModal(true)}>Add Subject</button></div>
              <div className="flex  flex-wrap justify-center mt-7 ">
                 {Study.map((value)=>
              <SubjectCard key={value.id} id={value.id} Subject={value.Subject} Hours={value.Hours} Completed={value.Completed} updateSubject={updateSubject} updateHours={updateHours} handlepercent={handlepercent} handlecomplete={handlecomplete} handledelete={handledelete} dark={dark}></SubjectCard>)
                 }
              </div>
+             {/* ✅ SHOW MODAL ONLY WHEN showModal IS TRUE */}
+      {showModal && (
+        <Modal
+          onClose={() => setShowModal(false)}
+          onCreate={(subject, hours) => {
+            handleAdd(subject, hours);
+            setShowModal(false);
+          }}
+        />
+      )}
              </div>
              
              

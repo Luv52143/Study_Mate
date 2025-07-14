@@ -5,3 +5,7 @@ Learnt about:
 4. pass every argument properly to a component especially ID
 5. all INPUT value are in STRING
 6. Limiting Number of times input can be given to a field
+7. When we say "viewport height" or "screen full", we mean:
+   🖥️ The height of the visible area of the browser window, when the page first loads — before scrolling.
+
+8. 

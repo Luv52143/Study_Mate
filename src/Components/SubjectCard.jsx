@@ -22,8 +22,8 @@ else
         <>
     <div className={`flex flex-col h-[30vh] w-[25vw] border-4 rounded-xl shadow-2xl bg-blue-50 mx-3 my-4 ${dark===true?"border-white shadow-white":"border shadow-black"} `}>
         <div className="flex justify-around items-center ">
-            <div className="font-bold font-serif">Subject:<input type="text" className="w-20 m-1 pl-1 " value={Subject} onChange={(e)=>updateSubject(id,e.target.value)}/></div>
-            <div className="font-bold font-serif">Goal: <input type="number" min="0" className="w-10 pl-1" value={Hours}  onChange={(e)=> updateHours(id,e.target.value)}/>Hours</div>
+            <div className="font-bold font-serif">Subject:{Subject}</div>
+            <div className="font-bold font-serif">Goal:{Hours} Hours</div>
 
         </div>
         <div className="flex  justify-center items-center mt-8"><p>Progress:</p> <div className="ml-2 h-3 w-[10vw] border rounded-2xl"> <div className= {`h-[10.8px]  bg-pink-300 rounded-2xl` }  style={{ width: `${per}%` }}></div></div><p className="italic">{per}%</p></div>
@@ -36,3 +36,4 @@ else
     </>
     )
 }
+//<input type="number" min="0" className="w-10 pl-1" value={Hours}  onChange={(e)=> updateHours(id,e.target.value)}/>Hours
