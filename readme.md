@@ -8,4 +8,7 @@ Learnt about:
 7. When we say "viewport height" or "screen full", we mean:
    🖥️ The height of the visible area of the browser window, when the page first loads — before scrolling.
 
-8. 
+8. Creating Modal/Pop Up
+9.JSX is part of JavaScript, but JavaScript is not JSX. JSX is a way to express React elements within JavaScript — and curly braces are our entry point into JavaScript logic from JSX.
+Hence , we write JSX directly inside JS but cant use JS directly in JSX, {}--needed
+10.disabled={true/false}-----to control event triggering of a button(click)
