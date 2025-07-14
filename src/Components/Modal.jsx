@@ -27,14 +27,14 @@ export default function Modal({ onClose, onCreate }) {
 
         <div className="flex justify-between mt-4">
           <button
-            className="bg-green-500 text-white px-4 py-2 rounded"
+            className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer"
             onClick={() => onCreate(subject, hours)}
             disabled={!subject || !hours}
           >
             Add
           </button>
           <button
-            className="bg-red-500 text-white px-4 py-2 rounded"
+            className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer"
             onClick={onClose}
           >
             Cancel
