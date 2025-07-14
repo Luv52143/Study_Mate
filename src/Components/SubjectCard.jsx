@@ -7,7 +7,8 @@ export default function SubjectCard({
     updateHours,
     handlepercent,
     handlecomplete,
-    handledelete
+    handledelete,
+    dark
 }){let per;
     if(Number(Hours)>0){
     per=Completed/Number(Hours)*100;
@@ -19,7 +20,7 @@ else
     
     return(
         <>
-    <div className="flex flex-col h-[30vh] w-[25vw] border-2 rounded-xl shadow-2xl bg-blue-50 mx-3 my-4 ">
+    <div className={`flex flex-col h-[30vh] w-[25vw] border-4 rounded-xl shadow-2xl bg-blue-50 mx-3 my-4 ${dark===true?"border-white shadow-white":"border shadow-black"} `}>
         <div className="flex justify-around items-center ">
             <div className="font-bold font-serif">Subject:<input type="text" className="w-20 m-1 pl-1 " value={Subject} onChange={(e)=>updateSubject(id,e.target.value)}/></div>
             <div className="font-bold font-serif">Goal: <input type="number" min="0" className="w-10 pl-1" value={Hours}  onChange={(e)=> updateHours(id,e.target.value)}/>Hours</div>
